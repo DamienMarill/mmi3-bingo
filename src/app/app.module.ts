@@ -9,13 +9,15 @@ import {CommonModule} from "@angular/common";
 import { SettingsComponent } from './pages/settings/settings.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DataTransferComponent } from './shared/layout/data-transfer/data-transfer.component';
+import { StatsComponent } from './pages/stats/stats.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
     SettingsComponent,
-    DataTransferComponent
+    DataTransferComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
