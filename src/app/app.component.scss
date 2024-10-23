@@ -1,0 +1,12 @@
+.active {
+  @apply bg-primary text-primary-content;
+}
+
+.menu :where(li > *:not(ul)):not(.menu-title):not(details > summary):active,
+.menu :where(li > *:not(ul)):not(.menu-title):not(details > summary).active {
+  @apply bg-primary text-primary-content;
+}
+
+.menu :where(li > *:not(ul)):not(.menu-title):not(details > summary):hover {
+  @apply bg-primary/20;
+}

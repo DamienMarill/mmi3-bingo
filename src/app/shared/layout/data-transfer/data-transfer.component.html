@@ -1,0 +1,101 @@
+<div class="card bg-base-100 shadow-xl">
+  <div class="card-body">
+    <h2 class="card-title">Import / Export des données</h2>
+
+    <!-- Import Section -->
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text">Importer des données (JSON)</span>
+      </label>
+      <div class="flex gap-2">
+            <textarea
+              class="textarea textarea-bordered flex-1"
+              [(ngModel)]="importData"
+              placeholder="Collez votre JSON ici..."
+              rows="5"
+            ></textarea>
+      </div>
+      <div class="mt-2">
+        <button
+          class="btn btn-primary gap-2"
+          (click)="importJson()"
+          [disabled]="!importData"
+        >
+          <fa-icon [icon]="fa.faUpload"></fa-icon>
+          Importer
+        </button>
+      </div>
+    </div>
+
+    <div class="divider">OU</div>
+
+    <!-- Share Section -->
+    <div class="flex flex-col gap-4">
+      <button
+        class="btn btn-primary gap-2"
+        (click)="downloadJson()"
+      >
+        <fa-icon [icon]="fa.faDownload"></fa-icon>
+        Télécharger les données (JSON)
+      </button>
+
+      <div class="divider">OU</div>
+
+      <div class="flex flex-col items-center gap-2">
+        <button
+          class="btn btn-success gap-2 w-full"
+          (click)="shareData()"
+        >
+          <fa-icon [icon]="fa.faShare"></fa-icon>
+          Partager les données
+        </button>
+
+        @if (shareableLink()) {
+          <div class="flex w-full gap-2">
+            <input
+              type="text"
+              [value]="shareableLink()"
+              class="input input-bordered flex-1"
+              readonly
+            />
+            <button
+              class="btn btn-square"
+              (click)="copyLink()"
+            >
+              <fa-icon [icon]="fa.faLink"></fa-icon>
+            </button>
+          </div>
+          <!-- QR Code avec légende -->
+          @if (qrCodeUrl()) {
+            <div class="flex flex-col items-center">
+              <div class="bg-white p-4 rounded-xl shadow-lg">
+                <img
+                  [src]="qrCodeUrl()"
+                  alt="QR Code du lien de partage"
+                  class="w-full"
+                />
+              </div>
+              <span class="text-sm mt-2 text-base-content/70">
+                  Scannez pour importer les données
+                </span>
+              <button
+                class="btn btn-sm btn-ghost gap-2 mt-1"
+                (click)="downloadQrCode()"
+              >
+                <fa-icon [icon]="fa.faDownload"></fa-icon>
+                Télécharger le QR code
+              </button>
+            </div>
+          }
+        }
+      </div>
+    </div>
+
+    <!-- Alert -->
+    @if (alertMessage()) {
+      <div class="alert" [class]="alertMessage()?.type || ''">
+        <span>{{ alertMessage()?.text }}</span>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,115 @@
+<div class="container mx-auto p-4 flex flex-col gap-8">
+  <!-- Players Section -->
+  <div class="card bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">Joueurs</h2>
+
+      <form [formGroup]="playerForm" (ngSubmit)="submitPlayer()" class="flex gap-4">
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="Nom du joueur"
+          class="input input-bordered w-full"
+        />
+        <input
+          type="color"
+          formControlName="color"
+          class="w-14 h-14 rounded cursor-pointer"
+        />
+        <button type="submit" class="btn btn-primary">
+          {{ editingPlayerId() ? 'Modifier' : 'Ajouter' }}
+        </button>
+        @if (editingPlayerId()) {
+          <button type="button" class="btn" (click)="cancelPlayerEdit()">
+            Annuler
+          </button>
+        }
+      </form>
+
+      <div class="divider"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        @for (player of bingoService.players(); track player.id) {
+          <div class="flex items-center gap-4 p-4 border rounded-lg hover:shadow-md transition-shadow"
+               [class.border-primary]="editingPlayerId() === player.id">
+            <div
+              class="w-8 h-8 rounded-full"
+              [style.background-color]="player.color"
+            ></div>
+            <span class="flex-1">{{ player.name }}</span>
+            <div class="flex gap-2">
+              <button
+                class="btn btn-outline btn-neutral btn-circle"
+                (click)="editPlayer(player)"
+              >
+                <fa-icon [icon]="fa.faEdit"></fa-icon>
+              </button>
+              <button
+                class="btn btn-outline btn-neutral btn-circle"
+                (click)="deletePlayer(player.id)"
+              >
+                <fa-icon [icon]="fa.faTrash"></fa-icon>
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Bingo Cells Section -->
+  <div class="card bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">Cases du Bingo</h2>
+
+      <form [formGroup]="cellForm" (ngSubmit)="submitCell()" class="flex gap-4">
+        <input
+          type="text"
+          formControlName="content"
+          placeholder="Contenu de la case"
+          class="input input-bordered w-full"
+        />
+        <button type="submit" class="btn btn-primary">
+          {{ editingCellId() ? 'Modifier' : 'Ajouter' }}
+        </button>
+        @if (editingCellId()) {
+          <button type="button" class="btn" (click)="cancelCellEdit()">
+            Annuler
+          </button>
+        }
+      </form>
+
+      <div class="divider"></div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        @for (cell of bingoService.cells(); track cell.id) {
+          <div class="flex items-center justify-between p-4 border rounded-lg hover:shadow-md transition-shadow"
+               [class.border-primary]="editingCellId() === cell.id">
+            <span>{{ cell.content }}</span>
+            <div class="flex gap-2">
+              <button
+                class="btn btn-outline btn-neutral btn-circle"
+                (click)="editCell(cell)"
+              >
+                <fa-icon [icon]="fa.faEdit"></fa-icon>
+              </button>
+              <button
+                class="btn btn-outline btn-neutral btn-circle"
+                (click)="deleteCell(cell.id)"
+              >
+                <fa-icon [icon]="fa.faTrash"></fa-icon>
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card bg-base-100 shadow-xl">
+    <div class="card-body">
+      <app-data-transfer></app-data-transfer>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,228 @@
+{
+  "players": [
+    {
+      "id": 1,
+      "name": "Gwen",
+      "color": "#36a50d"
+    },
+    {
+      "id": 2,
+      "name": "Damien",
+      "color": "#197ebe"
+    },
+    {
+      "id": 3,
+      "name": "Gaetan",
+      "color": "#45B7D1"
+    },
+    {
+      "id": 4,
+      "name": "Lina",
+      "color": "#96CEB4"
+    },
+    {
+      "id": 5,
+      "name": "Julien",
+      "color": "#FFBE0B"
+    },
+    {
+      "id": 6,
+      "name": "Nathan",
+      "color": "#FF006E"
+    },
+    {
+      "id": 7,
+      "name": "Lucie",
+      "color": "#8338EC"
+    },
+    {
+      "id": 8,
+      "name": "Zach",
+      "color": "#3A86FF"
+    },
+    {
+      "id": 9,
+      "name": "Leo",
+      "color": "#FB5607"
+    }
+  ],
+  "cells": [
+    {
+      "id": 1,
+      "content": "ABERRANT"
+    },
+    {
+      "id": 2,
+      "content": "CARTMAN"
+    },
+    {
+      "id": 3,
+      "content": "*Slam PC/table*"
+    },
+    {
+      "id": 4,
+      "content": "PFFF"
+    },
+    {
+      "id": 5,
+      "content": "ALED"
+    },
+    {
+      "id": 6,
+      "content": "AYAYOUILLE"
+    },
+    {
+      "id": 7,
+      "content": "Arnaud"
+    },
+    {
+      "id": 9,
+      "content": "ALLOOO"
+    },
+    {
+      "id": 10,
+      "content": "Benoit"
+    },
+    {
+      "id": 12,
+      "content": "TA GUEULE"
+    },
+    {
+      "id": 13,
+      "content": "CAFE"
+    },
+    {
+      "id": 14,
+      "content": "AHH !"
+    },
+    {
+      "id": 15,
+      "content": "AWH"
+    },
+    {
+      "id": 16,
+      "content": "Lina -> 🎶"
+    },
+    {
+      "id": 17,
+      "content": "AI"
+    },
+    {
+      "id": 18,
+      "content": "C HORRIBLE"
+    },
+    {
+      "id": 19,
+      "content": "Nathan 😤"
+    },
+    {
+      "id": 20,
+      "content": "GRRRR"
+    },
+    {
+      "id": 21,
+      "content": "Pause"
+    },
+    {
+      "id": 22,
+      "content": "PULL/PUSH"
+    },
+    {
+      "id": 23,
+      "content": "Je suis FOUTU"
+    },
+    {
+      "id": 24,
+      "content": "Utile?"
+    },
+    {
+      "content": "Jeune",
+      "id": 25
+    },
+    {
+      "content": "Tourniquet",
+      "id": 26
+    },
+    {
+      "content": "FEUR",
+      "id": 27
+    },
+    {
+      "content": "OHUI",
+      "id": 28
+    },
+    {
+      "content": "BLUD",
+      "id": 29
+    },
+    {
+      "content": "... mère",
+      "id": 30
+    },
+    {
+      "content": "🤓",
+      "id": 31
+    },
+    {
+      "content": "... pute",
+      "id": 32
+    },
+    {
+      "content": "🙌😤",
+      "id": 33
+    },
+    {
+      "content": "BROTHER",
+      "id": 34
+    },
+    {
+      "content": "\"Non non\"",
+      "id": 35
+    },
+    {
+      "content": "Nathan 🤬 -> Gaetan",
+      "id": 36
+    },
+    {
+      "content": "Gaetan 🤬 -> @everyone",
+      "id": 37
+    },
+    {
+      "content": "\"BON\"",
+      "id": 38
+    },
+    {
+      "content": "Blague raciste",
+      "id": 39
+    },
+    {
+      "content": "Pas demandé",
+      "id": 40
+    },
+    {
+      "content": "Bon Gaetan",
+      "id": 41
+    },
+    {
+      "content": "CONNARD",
+      "id": 42
+    },
+    {
+      "content": "ça ne marche pas",
+      "id": 43
+    },
+    {
+      "content": "je vais ... crane",
+      "id": 44
+    },
+    {
+      "content": "*rot*",
+      "id": 45
+    },
+    {
+      "content": "ouais ouais ouais",
+      "id": 46
+    }
+  ],
+  "cellPlayers": []
+}

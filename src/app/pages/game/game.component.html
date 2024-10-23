@@ -1,0 +1,102 @@
+<div class="container mx-auto p-4">
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+    <!-- Grille de Bingo -->
+    <div class="lg:col-span-3">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Bingo Game</h2>
+
+          <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            @for (cell of sortedCells(); track cell.id) {
+              <button
+                [class]="getCellClasses(cell.id)"
+                [class.cell-highlight]="lastPlayedCell() === cell.id"
+                (click)="onCellClick(cell.id)"
+              >
+                <!-- Contenu de la cellule -->
+                <span class=" mb-4">{{ cell.content }}</span>
+
+                <!-- Point scoring animation container -->
+                @if (lastPlayedCell() === cell.id) {
+                  <div class="point-scored">{{ isUndoAction() ? '-1' : '+1' }}</div>
+                }
+
+                <!-- Marqueurs des joueurs regroupés -->
+                <div class="flex flex-wrap gap-4 mt-auto justify-center">
+                  @for (player of getUniquePlayers(cell.id); track player.id) {
+                    <div
+                      class="flex items-center justify-center tooltip tooltip-top"
+                      [class.counter-bump]="lastPlayedCell() === cell.id && lastPlayedPlayer() === player.id"
+                      [attr.data-tip]="player.name"
+                    >
+                      <div
+                        class="w-5 h-5 rounded-full relative flex items-center justify-center"
+                        [style.background-color]="player.color"
+                      >
+                      <span class="text-xs font-bold text-white">
+                        {{ bingoService.getPlayerCellCount(cell.id, player.id) }}
+                      </span>
+                      </div>
+                    </div>
+                  }
+                </div>
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Liste des Joueurs -->
+    <div class="lg:col-span-1 flex flex-col gap-4">
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <h2 class="card-title">Joueurs</h2>
+
+          <div class="flex flex-col gap-2">
+            @for (player of sortedPlayers(); track player.id) {
+              <button
+                [class]="getPlayerClasses(player)"
+                [class.player-highlight]="lastPlayedPlayer() === player.id"
+                (click)="selectPlayer(player)"
+              >
+                <div
+                  class="w-4 h-4 rounded-full"
+                  [style.background-color]="player.color"
+                ></div>
+                <span class="flex-1">{{ player.name }}</span>
+                <span
+                  class="badge badge-lg text-white"
+                  [style.background-color]="player.color"
+                  [class.counter-bump]="lastPlayedPlayer() === player.id"
+                >
+                {{ getPlayerScore(player) }}
+              </span>
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+      <div class="card bg-base-100 shadow-xl">
+        <div class="card-body">
+          <button
+            class="btn btn-outline gap-2"
+            (click)="undoLastPlay()"
+            [class.btn-disabled]="!canUndo()"
+          >
+            <fa-icon [icon]="fa.faUndo" class="h-4 w-4"></fa-icon>
+            Annuler le dernier coup
+          </button>
+          <!-- Info dernier coup -->
+          @if (lastPlayInfo(); as info) {
+            <div class="text-sm text-center mt-2 opacity-75">
+              Dernier coup :
+              <span [style.color]="info.player.color">{{ info.player.name }}</span>
+              sur "{{ info.cell.content }}"
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

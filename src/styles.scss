@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  @apply bg-base-200 min-h-screen;
+  font-size: 10px;
+}
+
+h2{
+  @apply text-2xl mb-4;
+}
