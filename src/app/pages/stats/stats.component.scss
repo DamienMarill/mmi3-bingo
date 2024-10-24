@@ -1,0 +1,19 @@
+::ng-deep {
+  .ngx-charts {
+    text {
+      fill: white !important;
+    }
+    .legend-title, .legend-label, .grid-line-path {
+      stroke: white !important;
+      color: white !important;
+    }
+    .legend-labels {
+      background-color: transparent !important;
+    }
+    .tick {
+      text {
+        fill: white !important;
+      }
+    }
+  }
+}

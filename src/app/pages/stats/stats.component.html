@@ -1,4 +1,57 @@
-<div class="container mx-auto p-4 flex items-center justify-center flex-col">
-  <h1 class="text-6xl text-center mb-8">Les jeunes stats arrivent</h1>
-  <img src="https://media1.tenor.com/m/fssR5-RR6gMAAAAd/littlebigwhale-lbw.gif" class="w-3/4">
+<div class="p-4 space-y-8">
+  <!-- Timeline Chart -->
+  <div class="card bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">Évolution des points</h2>
+      <div class="h-[400px] w-full">
+        <ngx-charts-line-chart
+          [results]="statsService.getTimelineData()"
+          [xAxis]="true"
+          [yAxis]="true"
+          [legend]="true"
+          [showXAxisLabel]="true"
+          [showYAxisLabel]="true"
+          xAxisLabel="Temps"
+          yAxisLabel="Points"
+          [timeline]="false"
+          [autoScale]="true"
+          [scheme]="colorScheme"
+        >
+        </ngx-charts-line-chart>
+      </div>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Player Distribution -->
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">Répartition par joueur</h2>
+        <div class="h-[400px] w-full">
+          <ngx-charts-advanced-pie-chart
+            [results]="statsService.getPlayerDistribution()"
+            [gradient]="false"
+            [scheme]="colorScheme"
+          >
+          </ngx-charts-advanced-pie-chart>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cell Distribution -->
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">Répartition par case</h2>
+        <div class="h-[400px] w-full">
+          <ngx-charts-pie-chart
+            [results]="statsService.getCellDistribution()"
+            [gradient]="true"
+            [labels]="true"
+            [doughnut]="true"
+            [scheme]="defaultColorScheme"
+          >
+          </ngx-charts-pie-chart>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
