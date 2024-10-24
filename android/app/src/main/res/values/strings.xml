@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">mmi3-bingo</string>
+    <string name="title_activity_main">mmi3-bingo</string>
+    <string name="package_name">dev.marill.bingommi3</string>
+    <string name="custom_url_scheme">dev.marill.bingommi3</string>
+</resources>
